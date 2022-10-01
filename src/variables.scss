@@ -1,0 +1,22 @@
+// text
+$text-white: #ffffff;
+$text-black: #000000;
+
+// background
+$background-white: #ffffff;
+
+// border
+$border-white: #ffffff;
+
+// media query
+@mixin is-sp {
+  @media screen and (max-width: 767px) {
+    @content;
+  }
+}
+
+@mixin is-tablet {
+  @media screen and (max-width: 1040px) {
+    @content;
+  }
+}
