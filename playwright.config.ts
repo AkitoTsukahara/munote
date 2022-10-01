@@ -2,7 +2,7 @@ import type { PlaywrightTestConfig } from '@playwright/test';
 
 const config: PlaywrightTestConfig = {
 	reporter: 'html',
-	retries: 3,
+	retries: 1,
 	expect: {
 		timeout: 20000
 	}

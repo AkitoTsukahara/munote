@@ -1,22 +1,24 @@
-// text
-$text-white: #ffffff;
-$text-black: #000000;
+$background: #fffffe;
+$headline: #272343;
+$paragraph: #2d334a;
+$button: #ffd803;
+$button-text: #272343;
 
-// background
-$background-white: #ffffff;
-
-// border
-$border-white: #ffffff;
+$stroke: #272343;
+$main: #fffffe;
+$highlight: #ffd803;
+$secondary: #e3f6f5;
+$tertiary: #bae8e8;
 
 // media query
 @mixin is-sp {
-  @media screen and (max-width: 767px) {
-    @content;
-  }
+	@media screen and (max-width: 767px) {
+		@content;
+	}
 }
 
 @mixin is-tablet {
-  @media screen and (max-width: 1040px) {
-    @content;
-  }
+	@media screen and (max-width: 1040px) {
+		@content;
+	}
 }
