@@ -12,13 +12,20 @@ $tertiary: #bae8e8;
 
 // media query
 @mixin is-sp {
-	@media screen and (max-width: 767px) {
-		@content;
-	}
+  @media screen and (max-width: 767px) {
+    @content;
+  }
 }
 
 @mixin is-tablet {
-	@media screen and (max-width: 1040px) {
-		@content;
-	}
+  @media screen and (max-width: 1040px) {
+    @content;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  color: $paragraph;
+  background: $background;
 }
