@@ -6,63 +6,42 @@ endif
 
 .PHONY: help
 
-CONTAINER_ID := `docker compose ps -q yell-front`
-
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) | sort | awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
 
-up:  ## コンテナ起動
-	@mutagen-compose up -d
-
-down:  ## コンテナ停止
-	@mutagen-compose down
-
-logs:  ## ログ表示
-	@docker compose logs -f --tail=1000
-
 npm:  ## npm install
-	@docker compose exec yell-front bash -i -c "npm install"
+	npm install
 
 dev:  ## devサーバー起動
-	@docker compose exec yell-front bash -i -c "npm run dev"
-
-ssh:  ## コンテナへ接続
-	@docker compose exec yell-front bash
+	npm run dev
 
 app_build:  ## build
-	@docker compose exec yell-front bash -i -c "npm run build"
+	npm run build
 
 lint:  ## lint
-	@docker compose exec yell-front bash -i -c "npm run lint"
+	npm run lint
 
 format:  ## format
-	@docker compose exec yell-front bash -i -c "npm run format"
+	npm run format
 
 check:  ## check
-	@docker compose exec yell-front bash -i -c "npm run check"
+	npm run check
 
 test:  ## playwright test
-	@docker compose exec yell-front bash -i -c "npm run test"
-
-rice-ball:  ## delete feature-flag
-	@docker compose exec yell-front bash -i -c "npm run rice-ball"
+	npm run test
 
 update_snapshot:  ## playwright test with snapshot update
-	@docker compose exec yell-front bash -i -c "npm run update-snapshot $(US_ARGS)"
+	npm run update-snapshot $(US_ARGS)
 
 rm_test_cache:  ## remove playwright test cache
 	@rm -rf playwright/.cache
 
 
 vitest:  ## vitest test
-	@docker compose exec yell-front bash -i -c "npm run vitest"
+	npm run vitest
 
 storybook:  ## storybook
-	@docker compose exec yell-front bash -i -c "npm run storybook"
+	npm run storybook
 
 api_build:  ## aspida build
-	@docker compose exec yell-front bash -i -c "npm run api:build"
-
-rebuild:  ## rebuild container
-	@docker compose build --no-cache
-
+	npm run api:build
