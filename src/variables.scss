@@ -1,5 +1,7 @@
-$background: #fffffe;
+$background: #e3f6f5;
+$card-background: #fffffe;
 $headline: #272343;
+$sub-headline: #2d334a;
 $paragraph: #2d334a;
 $button: #ffd803;
 $button-text: #272343;
@@ -26,9 +28,4 @@ $tertiary: #bae8e8;
 * {
   margin: 0;
   padding: 0;
-}
-
-body {
-  color: $paragraph;
-  background: $background;
 }

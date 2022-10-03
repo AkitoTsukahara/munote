@@ -7,13 +7,13 @@
   $: formatedDate = date ? format(new Date(date), 'yyyy年MM月dd日') : null
 </script>
 
-<div>
+<div class="date-area">
   <span class="title">{title}</span>
   <span class="date">{formatedDate}</span>
 </div>
 
 <style lang="scss">
-  div {
+  .date-area {
     display: grid;
     font-size: 14px;
 

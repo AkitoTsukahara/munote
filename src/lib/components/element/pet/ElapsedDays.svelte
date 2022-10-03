@@ -8,13 +8,13 @@
     : null
 </script>
 
-<div>
+<div class="elapsed-days">
   <span class="days">日数</span>
   <span>{calcedElapsedDays}</span>
 </div>
 
 <style lang="scss">
-  div {
+  .elapsed-days {
     display: grid;
     font-size: 14px;
 

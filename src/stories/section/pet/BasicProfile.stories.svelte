@@ -1,12 +1,25 @@
 <script lang="ts">
-  import ProfileIcon from '$lib/components/element/pet/ProfileIcon.svelte'
-  import Anniversary from '$lib/components/block/pet/Anniversary.svelte'
+  import { Meta, Story, Template } from '@storybook/addon-svelte-csf'
+  import BasicProfile from '$lib/components/section/pet/BasicProfile.svelte'
+  import profileImage from '../../assets/images/profile-image.jpg'
 </script>
 
-<div class="basic-profile">
-  
+<Meta title="Components/Section/Pet/BasicProfile" component={BasicProfile} />
+
+<div>
+  <Template let:args>
+    <BasicProfile {...args} />
+  </Template>
 </div>
 
-<style lang="scss">
-
-</style>
+<Story
+  name="Default"
+  args={{
+    name: 'ムート',
+    breed: 'トイプードル',
+    birthday: '2021-10-25T12:00:00+09:00',
+    sex: '♂',
+    profileImage: profileImage,
+    familyDay: '2022-01-15T12:00:00+09:00'
+  }}
+/>

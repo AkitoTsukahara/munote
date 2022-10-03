@@ -13,7 +13,7 @@
 </script>
 
 <div class="profile">
-  <ProfileIcon {profileImage}/>
+  <ProfileIcon {profileImage} {name} />
   <div class="profile-data">
     <h2>{name}</h2>
     <div>
@@ -26,14 +26,10 @@
 
 <style lang="scss">
   .profile {
-    background: $secondary;
-    padding: 24px;
     display: flex;
-    border-radius: 5px;
     gap: 16px;
 
     .profile-data {
-      background: $secondary;
       font-size: 16px;
       font-weight: 700;
 

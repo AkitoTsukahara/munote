@@ -13,8 +13,8 @@
 </div>
 
 <Story
-    name="Default"
-    args={{
+  name="Default"
+  args={{
     name: 'ムート',
     breed: 'トイプードル',
     birthday: '2021-10-25T12:00:00+09:00',

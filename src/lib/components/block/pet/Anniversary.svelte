@@ -25,14 +25,15 @@
 
 <style lang="scss">
   .anniversary {
+    .birthday {
+      margin-bottom: 16px;
+    }
+
     .birthday,
     .family-day {
       display: flex;
       gap: 8px;
       align-items: center;
-    }
-    .birthday {
-      margin-bottom: 16px;
     }
   }
 </style>
