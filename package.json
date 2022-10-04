@@ -12,7 +12,7 @@
     "format": "prettier --plugin-search-dir . --write .",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook",
-    "test-ct": "playwright test -c playwright-ct.config.ts"
+    "api:build": "aspida"
   },
   "devDependencies": {
     "@babel/core": "^7.19.3",
@@ -31,6 +31,7 @@
     "@sveltejs/adapter-auto": "next",
     "@sveltejs/kit": "next",
     "@types/cookie": "^0.5.1",
+    "@types/uuid": "^8.3.4",
     "@typescript-eslint/eslint-plugin": "^5.27.0",
     "@typescript-eslint/parser": "^5.27.0",
     "babel-loader": "^8.2.5",
@@ -52,9 +53,13 @@
   },
   "type": "module",
   "dependencies": {
+    "@aspida/axios": "^1.11.0",
+    "axios": "^0.27.2",
     "date-fns": "^2.29.3",
     "node-sass": "^7.0.3",
     "postcss-media-minmax": "^5.0.0",
-    "sass": "^1.55.0"
+    "query-string": "^7.1.1",
+    "sass": "^1.55.0",
+    "uuid": "^9.0.0"
   }
 }
