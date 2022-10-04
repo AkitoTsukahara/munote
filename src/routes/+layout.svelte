@@ -1,9 +1,7 @@
-<script>
-  import './styles.css'
+<script lang="ts">
 </script>
-
 <div class="app">
   <main>
-    <slot />
+    <slot/>
   </main>
 </div>

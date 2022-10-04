@@ -5,7 +5,7 @@ export default defineConfig((env: ConfigEnv) => {
   return {
     server: {
       host: '0.0.0.0',
-      port: 9999,
+      port: 1025,
       fs: {
         allow: ['.']
       }
