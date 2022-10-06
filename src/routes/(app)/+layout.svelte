@@ -1,14 +1,10 @@
 <div class="layout">
-  <div class="header">
-
-  </div>
+  <div class="header" />
 
   <div class="container">
     <slot />
   </div>
-  <div class="footer">
-
-  </div>
+  <div class="footer" />
 </div>
 
 <style lang="scss">

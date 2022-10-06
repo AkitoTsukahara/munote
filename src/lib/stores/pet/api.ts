@@ -1,5 +1,5 @@
 import { client } from '$lib/package/api/client'
-import type {ApiPet} from '$api/types/pet'
+import type { ApiPet } from '$api/types/pet'
 import axios from 'axios'
 
 export const usePetStoreApi = () => {

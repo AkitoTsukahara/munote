@@ -7,11 +7,9 @@ export type GetOutput = {
 }
 
 export const load: ServerLoad = async (): Promise<GetOutput> => {
-  const [pet] = await Promise.all([usePetStoreApi().get()]).catch(
-    (err) => {
-      throw error(Number(err.response?.status), err.response?.statusText)
-    }
-  )
+  const [pet] = await Promise.all([usePetStoreApi().get()]).catch((err) => {
+    throw error(Number(err.response?.status), err.response?.statusText)
+  })
   return {
     pet
   }

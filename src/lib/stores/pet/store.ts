@@ -3,7 +3,7 @@ import type { ApiPet } from '$api/types/pet'
 
 export type Pet = {
   name: string
-  sex: string
+  sex: '♂' | '♀'
   breed: string
   birthday: string
   familyday: string
@@ -15,8 +15,6 @@ export type Pet = {
 const petStore = writable<Pet | null>(null)
 
 const setFromApi = (data: ApiPet) => {
-  console.log('check')
-  console.log(data.records[0].fields)
   const pet: Pet = {
     name: data.records[0].fields.name,
     sex: data.records[0].fields.sex,

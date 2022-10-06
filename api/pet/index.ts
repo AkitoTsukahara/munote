@@ -1,4 +1,4 @@
-import type {ApiPet} from '$api/types/pet'
+import type { ApiPet } from '$api/types/pet'
 
 export type Methods = {
   get: {

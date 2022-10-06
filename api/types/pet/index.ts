@@ -1,17 +1,19 @@
 export type ApiPet = {
-  records:[
+  records: [
     {
       id: string
       createdTime: string
       fields: {
         name: string
-        sex: string
+        sex: '♂' | '♀'
         breed: string
         birthday: string
         familyday: string
-        profileImage: [{
-          url: string
-        }]
+        profileImage: [
+          {
+            url: string
+          }
+        ]
       }
     }
   ]
