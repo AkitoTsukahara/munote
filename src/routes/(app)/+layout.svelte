@@ -1,6 +1,5 @@
 <div class="layout">
   <div class="header" />
-
   <div class="container">
     <slot />
   </div>
@@ -11,7 +10,10 @@
   .layout {
     display: flex;
     flex-direction: column;
+    width: 390px;
     height: 100%;
+    margin: 0 auto;
+    background: #272343;
   }
   .container {
     flex-grow: 1;
