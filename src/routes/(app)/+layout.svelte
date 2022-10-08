@@ -1,21 +1,29 @@
+<script>
+  import CommonFooter from "$lib/components/page/common/CommonFooter.svelte"
+
+</script>
 <div class="layout">
-  <div class="header" />
+  <div class="header"/>
   <div class="container">
     <slot />
   </div>
-  <div class="footer" />
+  <footer>
+    <CommonFooter/>
+  </footer>
 </div>
 
 <style lang="scss">
   .layout {
+    margin-top: 40px;
     display: flex;
     flex-direction: column;
-    width: 390px;
-    height: 100%;
-    margin: 0 auto;
-    background: #272343;
+    min-height: calc(100vh - 40px);
   }
   .container {
     flex-grow: 1;
+    padding: 0 16px;
+  }
+  footer {
+    margin-top: auto;
   }
 </style>

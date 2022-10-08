@@ -8,24 +8,34 @@
 
 <div class="footer-icon-list">
     <div class="footer-icon">
-        <Pet/>
-        <div class="icon-title">ペット</div>
+        <a href="/">
+            <Pet/>
+            <div class="icon-title">ペット</div>
+        </a>
     </div>
     <div class="footer-icon">
-        <Chart/>
-        <div class="icon-title">チャート</div>
+        <a href="/chart">
+            <Chart/>
+            <div class="icon-title">チャート</div>
+        </a>
     </div>
     <div class="footer-icon">
-        <Diary/>
-        <div class="icon-title">日記</div>
+        <a href="/diary">
+            <Diary/>
+            <div class="icon-title">日記</div>
+        </a>
     </div>
     <div class="footer-icon">
-        <Money/>
-        <div class="icon-title">支出</div>
+        <a href="/money">
+            <Money/>
+            <div class="icon-title">支出</div>
+        </a>
     </div>
     <div class="footer-icon">
-        <Calendar/>
-        <div class="icon-title">カレンダー</div>
+        <a href="/calendar">
+            <Calendar/>
+            <div class="icon-title">カレンダー</div>
+        </a>
     </div>
 </div>
 
@@ -34,6 +44,8 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+        background: $card-background;
+        padding: 8px 16px;
     }
     .footer-icon {
         display: grid;
@@ -41,7 +53,18 @@
         :global(svg) {
             width: 40px;
             height: 40px;
+            display: flex;
+            justify-content: center;
             margin: 0 auto;
+        }
+
+        a {
+            color: $headline;
+            text-decoration: none;
+
+            &:hover {
+                text-decoration: underline;
+            }
         }
     }
     .icon-title {

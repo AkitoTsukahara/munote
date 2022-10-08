@@ -12,6 +12,14 @@
   margin: 0;
 }
 .app {
-  background: #272343;
+  background: $headline;
+}
+main {
+  background: $background;
+  display: flex;
+  flex-direction: column;
+  width: 390px;
+  height: 100%;
+  margin: 0 auto;
 }
 </style>
