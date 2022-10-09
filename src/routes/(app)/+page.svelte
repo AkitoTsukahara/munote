@@ -4,7 +4,7 @@
   import BasicProfile from '$lib/components/section/pet/BasicProfile.svelte'
 
   export let data: GetOutput
-  const {petStore, setFromApi} = usePet()
+  const { petStore, setFromApi } = usePet()
   $: setFromApi(data.pet)
 
   $: pet = $petStore

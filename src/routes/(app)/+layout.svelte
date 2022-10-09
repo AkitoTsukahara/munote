@@ -1,14 +1,14 @@
 <script>
-  import CommonFooter from "$lib/components/page/common/CommonFooter.svelte"
-
+  import CommonFooter from '$lib/components/page/common/CommonFooter.svelte'
 </script>
+
 <div class="layout">
-  <div class="header"/>
+  <div class="header" />
   <div class="container">
     <slot />
   </div>
   <footer>
-    <CommonFooter/>
+    <CommonFooter />
   </footer>
 </div>
 
