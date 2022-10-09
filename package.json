@@ -56,12 +56,17 @@
   "type": "module",
   "dependencies": {
     "@aspida/axios": "^1.11.0",
+    "@fullcalendar/common": "^5.11.3",
+    "@fullcalendar/core": "^5.11.3",
+    "@fullcalendar/daygrid": "^5.11.3",
+    "@fullcalendar/interaction": "^5.11.3",
     "axios": "^0.27.2",
     "date-fns": "^2.29.3",
     "node-sass": "^7.0.3",
     "postcss-media-minmax": "^5.0.0",
     "query-string": "^7.1.1",
     "sass": "^1.55.0",
+    "svelte-fullcalendar": "^2.0.0-beta.0",
     "uuid": "^9.0.0"
   }
 }

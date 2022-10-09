@@ -51,7 +51,11 @@ export default defineConfig((env: ConfigEnv) => {
           find: '$lib',
           replacement: `${__dirname}/src/lib/`
         }
-      ]
+      ],
+      dedupe: ['@fullcalendar/common']
+    },
+    optimizeDeps: {
+      include: ['@fullcalendar/common']
     },
     css: {
       preprocessorOptions: {
