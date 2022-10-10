@@ -1,6 +1,6 @@
 import type { ApiSchedule } from '$api/types/schedule'
 import { error, type ServerLoad } from '@sveltejs/kit'
-import {useScheduleStoreApi} from '$lib/stores/schedule/api'
+import { useScheduleStoreApi } from '$lib/stores/schedule/api'
 
 export type GetOutput = {
   schedule: ApiSchedule

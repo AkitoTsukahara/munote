@@ -13,16 +13,20 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
       get: (option?: { config?: T | undefined } | undefined) =>
         fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option).json().then(r => r.body),
+        fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option)
+          .json()
+          .then((r) => r.body),
       $path: () => `${prefix}${PATH0}`
     },
     schedule: {
       get: (option?: { config?: T | undefined } | undefined) =>
         fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option).json().then(r => r.body),
+        fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option)
+          .json()
+          .then((r) => r.body),
       $path: () => `${prefix}${PATH1}`
-    },
+    }
   }
 }
 

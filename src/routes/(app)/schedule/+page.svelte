@@ -6,29 +6,20 @@
   import type { GetOutput } from './+page.server'
   import { useSchedule } from '$lib/stores/schedule/store'
 
-
   export let data: GetOutput
-  const {scheduleStore, setFromApi} = useSchedule()
+  const { scheduleStore, setFromApi } = useSchedule()
   $: setFromApi(data.schedule)
-
-  $: schedule = $scheduleStore
-  let calendarEvents: EventInput[] = $scheduleStore
-  let calendarComponentRef;
+  let calendarEvents: EventInput[] | null = $scheduleStore ? $scheduleStore : []
 
   $: handleDateClick = (event: any) => {
-    if (
-      confirm('Would you like to add an event to ' + event.dateStr + ' ?')
-    ) {
-      let calendarApi = event.view.calendar
-      calendarApi.unselect();
+    if (confirm('Would you like to add an event to ' + event.dateStr + ' ?')) {
       calendarEvents = [
         ...calendarEvents,
         {
           title: 'New Event',
-          start: event.date,
-          allDay: event.allDay,
-        } as EventInput,
-      ];
+          start: event.date
+        }
+      ]
     }
   }
 
@@ -36,12 +27,12 @@
     droppable: true,
     editable: true,
     initialView: 'dayGridMonth',
-    headerToolbar: {left: 'prev,next', center: 'title', right: 'today'},
+    headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
     locale: jaLocal,
-    buttonText: {today: 'BACK'},
+    buttonText: { today: 'BACK' },
     plugins: [dayGridPlugin, interactionPlugin],
     height: 560,
-    events: calendarEvents,
+    events: calendarEvents ? calendarEvents : [],
     dateClick: (event: any) => handleDateClick(event),
     select: (event: any) => handleDateClick(event)
   }
@@ -51,8 +42,5 @@
 </script>
 
 <div class="Calendar">
-  <FullCalendar
-      bind:this={calendarComponentRef}
-      {options}
-  />
+  <FullCalendar {options} />
 </div>

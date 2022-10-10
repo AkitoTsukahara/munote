@@ -4,7 +4,7 @@
   import BasicProfile from '$lib/components/section/pet/BasicProfile.svelte'
 
   export let data: GetOutput
-  const {petStore, setFromApi} = usePet()
+  const { petStore, setFromApi } = usePet()
   $: setFromApi(data.pet)
 
   $: pet = $petStore
@@ -13,12 +13,12 @@
 <div>
   {#if pet}
     <BasicProfile
-        name={pet.name}
-        breed={pet.breed}
-        birthday={pet.birthday}
-        sex={pet.sex}
-        profileImage={pet.profileImage.url}
-        familyDay={pet.familyday}
+      name={pet.name}
+      breed={pet.breed}
+      birthday={pet.birthday}
+      sex={pet.sex}
+      profileImage={pet.profileImage.url}
+      familyDay={pet.familyday}
     />
   {/if}
 </div>
