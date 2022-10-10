@@ -1,10 +1,10 @@
 import { client } from '$lib/package/api/client'
-import type { ApiPet } from '$api/types/pet'
+import type { ApiSchedule } from '$api/types/schedule'
 
-export const usePetStoreApi = () => {
-  const get = async (): Promise<ApiPet> => {
+export const useScheduleStoreApi = () => {
+  const get = async (): Promise<ApiSchedule> => {
     return await client()
-      .pet.$get()
+      .schedule.$get()
       .catch((err) => {
         if (err.response?.status !== 404) {
           console.error(err)
