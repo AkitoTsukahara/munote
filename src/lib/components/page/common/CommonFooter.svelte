@@ -9,32 +9,32 @@
 <div class="footer-icon-list">
   <div class="footer-icon">
     <a href="/">
-      <Pet />
+      <Pet/>
       <div class="icon-title">ペット</div>
     </a>
   </div>
   <div class="footer-icon">
     <a href="/chart">
-      <Chart />
+      <Chart/>
       <div class="icon-title">チャート</div>
     </a>
   </div>
   <div class="footer-icon">
     <a href="/diary">
-      <Diary />
+      <Diary/>
       <div class="icon-title">日記</div>
     </a>
   </div>
   <div class="footer-icon">
     <a href="/money">
-      <Money />
+      <Money/>
       <div class="icon-title">支出</div>
     </a>
   </div>
   <div class="footer-icon">
-    <a href="/calendar">
-      <Calendar />
-      <div class="icon-title">カレンダー</div>
+    <a href="/schedule">
+      <Calendar/>
+      <div class="icon-title">スケジュール</div>
     </a>
   </div>
 </div>
@@ -47,9 +47,11 @@
     background: $card-background;
     padding: 8px 16px;
   }
+
   .footer-icon {
     display: grid;
     justify-content: center;
+
     :global(svg) {
       width: 40px;
       height: 40px;
@@ -67,6 +69,7 @@
       }
     }
   }
+
   .icon-title {
     font-size: 12px;
     text-align: center;
