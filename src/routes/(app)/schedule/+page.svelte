@@ -33,8 +33,7 @@
     plugins: [dayGridPlugin, interactionPlugin],
     height: 560,
     events: calendarEvents ? calendarEvents : [],
-    dateClick: (event: any) => handleDateClick(event),
-    select: (event: any) => handleDateClick(event)
+    dateClick: (event: any) => handleDateClick(event)
   }
 
   $: calendarEvents
