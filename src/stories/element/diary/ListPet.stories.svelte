@@ -4,17 +4,17 @@
   import profileImage from '../../assets/images/profile-image.jpg'
 </script>
 
-<Meta title="Components/Element/Diary/ListPet" component={ListPet}/>
+<Meta title="Components/Element/Diary/ListPet" component={ListPet} />
 
 <div>
   <Template let:args>
-    <ListPet {...args}/>
+    <ListPet {...args} />
   </Template>
 </div>
 
 <Story
-    name="Default"
-    args={{
+  name="Default"
+  args={{
     icon: profileImage,
     name: 'ムート'
   }}

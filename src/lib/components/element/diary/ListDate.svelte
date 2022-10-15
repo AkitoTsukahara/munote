@@ -1,7 +1,7 @@
 <script lang="ts">
   import getDay from 'date-fns/getDay'
   import getDate from 'date-fns/getDate'
-  import {formatDay} from '$lib/package/date-fns'
+  import { formatDay } from '$lib/package/date-fns'
   export let date: string
 
   let dateObject = new Date(date)
