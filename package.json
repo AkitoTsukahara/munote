@@ -11,6 +11,7 @@
     "lint": "prettier --plugin-search-dir . --check . && eslint .",
     "format": "prettier --plugin-search-dir . --write .",
     "storybook": "start-storybook -p 6006",
+    "update-snapshot": "NODE_OPTIONS=--no-warnings playwright install && playwright test --update-snapshots",
     "build-storybook": "build-storybook",
     "api:build": "aspida"
   },
