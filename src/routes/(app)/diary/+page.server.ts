@@ -1,16 +1,16 @@
-import type { ApiSchedule } from '$api/types/schedule'
 import { error, type ServerLoad } from '@sveltejs/kit'
-import { useScheduleStoreApi } from '$lib/stores/schedule/api'
+import { useDiaryStoreApi } from '$lib/stores/diary/api'
+import type { ApiDiary } from '$api/types/diary'
 
 export type GetOutput = {
-  schedule: ApiSchedule
+  diaries: ApiDiary
 }
 
 export const load: ServerLoad = async (): Promise<GetOutput> => {
-  const [schedule] = await Promise.all([useScheduleStoreApi().get()]).catch((err) => {
+  const [diaries] = await Promise.all([useDiaryStoreApi().get()]).catch((err) => {
     throw error(Number(err.response?.status), err.response?.statusText)
   })
   return {
-    schedule
+    diaries
   }
 }

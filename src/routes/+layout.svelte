@@ -15,7 +15,7 @@
     background: $headline;
   }
   main {
-    background: $background;
+    background: $tertiary;
     display: flex;
     flex-direction: column;
     width: 390px;
