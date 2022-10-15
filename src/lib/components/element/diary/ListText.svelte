@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let text: string
+  export let title: string
 </script>
 
 <div class="list-text">
-  {text}
+  {title}
 </div>
 
 <style lang="scss">
