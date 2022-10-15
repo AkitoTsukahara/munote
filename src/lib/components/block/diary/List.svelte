@@ -21,7 +21,7 @@
 
 <style lang="scss">
   .list {
-    background: $secondary;
+    background: $card-background;
     border-radius: 5px;
     padding: 16px 24px;
     display: flex;
