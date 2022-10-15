@@ -9,9 +9,13 @@ export type ApiPet = {
         breed: string
         birthday: string
         familyday: string
-        profileImage: [
+        profile_image: [
           {
-            url: string
+            thumbnails: {
+              large: {
+                url: string
+              }
+            }
           }
         ]
       }
