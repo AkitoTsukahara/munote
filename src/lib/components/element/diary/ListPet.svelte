@@ -13,15 +13,19 @@
 <style lang="scss">
   .list-pet {
     display: flex;
+    gap: 8px;
+    align-items: center;
 
     .icon {
       border: 2px solid $highlight;
-      border-radius: 50%;
       box-sizing: border-box;
+      width: 24px;
+      height: 24px;
+      border-radius: 50%;
       
       img {
-        width: 16px;
-        height: 16px;
+        width: 100%;
+        border-radius: 50%;
       }
     }
 
