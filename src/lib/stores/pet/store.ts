@@ -22,7 +22,7 @@ const setFromApi = (data: ApiPet) => {
     birthday: data.records[0].fields.birthday,
     familyday: data.records[0].fields.familyday,
     profileImage: {
-      url: data.records[0].fields.profileImage[0].url
+      url: data.records[0].fields.profile_image[0].thumbnails.large.url
     }
   }
   petStore.set(pet)
