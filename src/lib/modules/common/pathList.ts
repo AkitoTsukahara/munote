@@ -1,9 +1,9 @@
 export const pathList = {
   top: '/',
   diary: '/diary',
-  schedule: '/suchedule',
+  schedule: '/schedule',
   chart: '/chart',
-  money: 'money'
+  money: '/money'
 } as const
 
 type PathType = keyof typeof pathList
@@ -13,5 +13,5 @@ export function getUrl(path: PathType): string {
 }
 
 export function getDiaryUrl(id: number): string {
-  return getUrl('diary') + '/' + { id }
+  return getUrl('diary') + '/' + id
 }

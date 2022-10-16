@@ -21,6 +21,7 @@
             title={diary.title}
             icon={diary.profileImage.url}
             date={diary.createdAt}
+            thumbnail={diary.thumbnail.url}
           />
         </a>
       </div>
@@ -31,5 +32,12 @@
 <style lang="scss">
   .list {
     margin-bottom: 16px;
+
+    a {
+      text-decoration: none;
+      &:hover {
+        opacity: 0.8;
+      }
+    }
   }
 </style>
