@@ -7,6 +7,7 @@
   export let icon: string
   export let date: string
   export let title: string
+  export let thumbnail: string
 </script>
 
 <div class="list">
@@ -17,6 +18,11 @@
     <ListPet {icon} {name} />
     <ListText {title} />
   </div>
+  {#if thumbnail}
+    <div class="thumbnail">
+      <img src={thumbnail} alt={title} />
+    </div>
+  {/if}
 </div>
 
 <style lang="scss">
@@ -25,16 +31,31 @@
     border-radius: 5px;
     padding: 16px 24px;
     display: flex;
-    gap: 24px;
+    gap: 16px;
 
     .date {
       display: flex;
       align-items: center;
+      flex-basis: 10%;
     }
 
     .text-content {
       display: grid;
       gap: 8px;
+      flex-basis: 60%;
+    }
+
+    .thumbnail {
+      width: 96px;
+      height: 80px;
+      align-items: center;
+      display: grid;
+      flex-basis: 30%;
+
+      img {
+        width: 100%;
+        border-radius: 5px;
+      }
     }
   }
 </style>
