@@ -4,35 +4,36 @@
   import Diary from '$lib/components/icon/Diary.svelte'
   import Money from '$lib/components/icon/Money.svelte'
   import Pet from '$lib/components/icon/Pet.svelte'
+  import { getUrl } from '$lib/modules/common/pathList.js'
 </script>
 
 <div class="footer-icon-list">
   <div class="footer-icon">
-    <a href="/">
+    <a href={getUrl('top')}>
       <Pet />
       <div class="icon-title">ペット</div>
     </a>
   </div>
   <div class="footer-icon">
-    <a href="/chart">
+    <a href={getUrl('chart')}>
       <Chart />
       <div class="icon-title">チャート</div>
     </a>
   </div>
   <div class="footer-icon">
-    <a href="/diary">
+    <a href={getUrl('diary')}>
       <Diary />
       <div class="icon-title">日記</div>
     </a>
   </div>
   <div class="footer-icon">
-    <a href="/money">
+    <a href={getUrl('money')}>
       <Money />
       <div class="icon-title">支出</div>
     </a>
   </div>
   <div class="footer-icon">
-    <a href="/schedule">
+    <a href={getUrl('schedule')}>
       <Calendar />
       <div class="icon-title">スケジュール</div>
     </a>

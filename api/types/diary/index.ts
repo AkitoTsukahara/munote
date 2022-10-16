@@ -4,6 +4,7 @@ export type ApiDiary = {
       id: string
       createdTime: string
       fields: {
+        id: number
         title: string
         contents: string
         created_at: string
