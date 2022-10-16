@@ -13,5 +13,5 @@ export function getUrl(path: PathType): string {
 }
 
 export function getDiaryUrl(id: number): string {
-  return getUrl('diary') + '/' + {id}
+  return getUrl('diary') + '/' + { id }
 }
