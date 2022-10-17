@@ -1,10 +1,11 @@
 import { client } from '$lib/package/api/client'
-import type { ApiDiary } from '$api/types/diary'
+import type { ApiDiaryDetail } from '$api/types/diary/detail'
 
-export const useDiaryStoreApi = () => {
-  const get = async (): Promise<ApiDiary> => {
+export const useDiaryDetailStoreApi = () => {
+  const get = async (id: string): Promise<ApiDiaryDetail> => {
     return await client()
-      .diary.$get()
+      .diary._id(id)
+      .$get()
       .catch((err) => {
         if (err.response?.status !== 404) {
           console.log(err)

@@ -2,9 +2,8 @@ import { writable } from '$lib/package/isolation/store'
 import type { ApiDiary } from '$api/types/diary'
 
 export type Diary = {
-  id: number
+  id: string
   title: string
-  contents: string
   createdAt: string
   thumbnail: {
     url: string
@@ -19,9 +18,8 @@ const diaryStore = writable<Diary[] | null>(null)
 
 const setFromApi = (data: ApiDiary) => {
   const diary: Diary[] = data.records.map((record) => ({
-    id: record.fields.id,
+    id: record.id,
     title: record.fields.title,
-    contents: record.fields.contents,
     createdAt: record.fields.created_at,
     thumbnail: {
       url: record.fields.thumbnail[0].thumbnails.large.url
