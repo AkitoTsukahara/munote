@@ -12,6 +12,6 @@ export function getUrl(path: PathType): string {
   return pathList[path]
 }
 
-export function getDiaryUrl(id: number): string {
+export function getDiaryUrl(id: string): string {
   return getUrl('diary') + '/' + id
 }

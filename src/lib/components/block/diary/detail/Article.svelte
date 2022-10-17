@@ -26,6 +26,8 @@
   .article {
     background: $card-background;
     padding: 24px 16px;
+    border-radius: 5px;
+
     .pet {
       display: flex;
       gap: 8px;
@@ -37,9 +39,11 @@
         height: 24px;
         border: 2px solid $highlight;
         box-sizing: border-box;
+        border-radius: 50%;
+
         img {
-          width: 24px;
-          height: 24px;
+          width: 20px;
+          height: 20px;
           border-radius: 50%;
         }
       }

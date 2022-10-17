@@ -1,10 +1,10 @@
 <script lang="ts">
-  import { useDiary } from '$lib/stores/diary/store'
   import type { GetOutput } from './+page.server'
   import Article from '$lib/components/block/diary/detail/Article.svelte'
+  import { useDiaryDetail } from '$lib/stores/diary/detail/store'
 
   export let data: GetOutput
-  const { diaryStore, setFromApi } = useDiary()
+  const { diaryStore, setFromApi } = useDiaryDetail()
   $: setFromApi(data.diary)
 
   $: diary = $diaryStore
@@ -16,7 +16,6 @@
       name={diary.name}
       title={diary.title}
       icon={diary.profileImage.url}
-      date={diary.createdAt}
       thumbnail={diary.thumbnail.url}
       contents={diary.contents}
     />
