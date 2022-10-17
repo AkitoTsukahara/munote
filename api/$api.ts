@@ -1,7 +1,8 @@
 import type { AspidaClient } from 'aspida'
 import type { Methods as Methods0 } from './diary'
-import type { Methods as Methods1 } from './pet'
-import type { Methods as Methods2 } from './schedule'
+import type { Methods as Methods1 } from './diary/_id@string'
+import type { Methods as Methods2 } from './pet'
+import type { Methods as Methods3 } from './schedule'
 
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   const prefix = (baseURL === undefined ? '' : baseURL).replace(/\/$/, '')
@@ -12,6 +13,19 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 
   return {
     diary: {
+      _id: (val1: string) => {
+        const prefix1 = `${PATH0}/${val1}`
+
+        return {
+          get: (option?: { config?: T | undefined } | undefined) =>
+            fetch<Methods1['get']['resBody']>(prefix, prefix1, GET, option).json(),
+          $get: (option?: { config?: T | undefined } | undefined) =>
+            fetch<Methods1['get']['resBody']>(prefix, prefix1, GET, option)
+              .json()
+              .then((r) => r.body),
+          $path: () => `${prefix}${prefix1}`
+        }
+      },
       get: (option?: { config?: T | undefined } | undefined) =>
         fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
@@ -22,18 +36,18 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
     },
     pet: {
       get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option).json(),
+        fetch<Methods2['get']['resBody']>(prefix, PATH1, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods1['get']['resBody']>(prefix, PATH1, GET, option)
+        fetch<Methods2['get']['resBody']>(prefix, PATH1, GET, option)
           .json()
           .then((r) => r.body),
       $path: () => `${prefix}${PATH1}`
     },
     schedule: {
       get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods2['get']['resBody']>(prefix, PATH2, GET, option).json(),
+        fetch<Methods3['get']['resBody']>(prefix, PATH2, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods2['get']['resBody']>(prefix, PATH2, GET, option)
+        fetch<Methods3['get']['resBody']>(prefix, PATH2, GET, option)
           .json()
           .then((r) => r.body),
       $path: () => `${prefix}${PATH2}`
