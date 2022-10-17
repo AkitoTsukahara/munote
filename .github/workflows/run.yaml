@@ -1,10 +1,5 @@
 name: Test with Lint
 on:
-  # Trigger the workflow on push or pull request,
-  # but only for the main branch
-  push:
-    branches:
-      - develop
   pull_request:
     branches:
       - main
@@ -33,14 +28,14 @@ jobs:
           eslint: true
           prettier: true
 
-#      - name: Install Playwright
-#        run: npx playwright install --with-deps
-#
-#      - name: Run Playwright tests
-#        run: npm run playwright test
-#      - uses: actions/upload-artifact@v2
-#        if: always()
-#        with:
-#          name: playwright-report
-#          path: playwright-report/
-#          retention-days: 1
+      - name: Install Playwright
+        run: npx playwright install --with-deps
+
+      - name: Run Playwright tests
+        run: npx playwright test
+      - uses: actions/upload-artifact@v2
+        if: always()
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 1
