@@ -28,6 +28,15 @@ jobs:
           eslint: true
           prettier: true
 
+  run-tests:
+    name: Run Tests with linters
+    if: ${{ always() }}
+    needs: run-linters
+    runs-on: ubuntu-latest
+
+      - name: Check out Git repository
+        uses: actions/checkout@v2
+
       - name: Install Playwright
         run: npx playwright install --with-deps
 
