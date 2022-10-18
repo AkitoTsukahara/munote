@@ -1,4 +1,5 @@
-import type { PlaywrightTestConfig } from '@playwright/test'
+import { devices } from '@playwright/test'
+import type { PlaywrightTestConfig } from '@playwright/experimental-ct-svelte'
 import path from 'path'
 import { fileURLToPath } from 'url'
 
@@ -12,6 +13,14 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 20000
   },
+  projects: [
+    {
+      name: 'chromium',
+      use: {
+        ...devices['Desktop Chrome']
+      }
+    },
+  ],
   use: {
     ctViteConfig: {
       resolve: {
