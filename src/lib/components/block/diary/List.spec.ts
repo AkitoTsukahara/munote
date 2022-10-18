@@ -24,7 +24,7 @@ test.describe('List for pc', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.8})
+    await expect(page).toHaveScreenshot({ maxDiffPixelRatio: 0.8 })
   })
 })
 
@@ -41,6 +41,6 @@ test.describe('List for sp', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.8})
+    await expect(page).toHaveScreenshot({ maxDiffPixelRatio: 0.8 })
   })
 })
