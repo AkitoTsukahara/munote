@@ -14,7 +14,9 @@ const config: PlaywrightTestConfig = {
     timeout: 20000,
     toMatchSnapshot: {
       maxDiffPixels: 10,
-    },
+      maxDiffPixelRatio: 1,
+      threshold: 0.4
+    }
   },
   use: {
     ctViteConfig: {
