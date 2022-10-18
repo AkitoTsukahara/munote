@@ -12,7 +12,7 @@ test.beforeEach(async ({}, testInfo) => {
 })
 
 test.describe('List for pc', () => {
-  test.use({ viewport: { width: 768, height: 100 } })
+  test.use({ viewport: { width: 768, height: 200 } })
   test('should render', async ({ mount, page }) => {
     const component = await mount(List, {
       props: {
@@ -24,12 +24,12 @@ test.describe('List for pc', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(component).toHaveScreenshot()
+    await expect(page).toHaveScreenshot()
   })
 })
 
 test.describe('List for sp', () => {
-  test.use({ viewport: { width: 320, height: 100 } })
+  test.use({ viewport: { width: 320, height: 200 } })
   test('should render', async ({ mount, page }) => {
     const component = await mount(List, {
       props: {
@@ -41,6 +41,6 @@ test.describe('List for sp', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(component).toHaveScreenshot()
+    await expect(page).toHaveScreenshot()
   })
 })

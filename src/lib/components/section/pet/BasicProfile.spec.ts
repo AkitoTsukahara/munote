@@ -10,7 +10,7 @@ test.beforeEach(async ({}, testInfo) => {
 })
 
 test.describe('BasicProfile for pc', () => {
-  test.use({ viewport: { width: 768, height: 100 } })
+  test.use({ viewport: { width: 768, height: 300 } })
   test('should render', async ({ mount, page }) => {
     const component = await mount(BasicProfile, {
       props: {
@@ -23,12 +23,12 @@ test.describe('BasicProfile for pc', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(component).toHaveScreenshot()
+    await expect(page).toHaveScreenshot()
   })
 })
 
 test.describe('BasicProfile for sp', () => {
-  test.use({ viewport: { width: 320, height: 100 } })
+  test.use({ viewport: { width: 320, height: 300 } })
   test('should render', async ({ mount, page }) => {
     const component = await mount(BasicProfile, {
       props: {
@@ -41,6 +41,6 @@ test.describe('BasicProfile for sp', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(component).toHaveScreenshot()
+    await expect(page).toHaveScreenshot()
   })
 })

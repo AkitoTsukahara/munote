@@ -13,14 +13,6 @@ const config: PlaywrightTestConfig = {
   expect: {
     timeout: 20000
   },
-  projects: [
-    {
-      name: 'chromium',
-      use: {
-        ...devices['Desktop Chrome']
-      }
-    }
-  ],
   use: {
     ctViteConfig: {
       resolve: {
