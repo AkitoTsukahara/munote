@@ -23,7 +23,7 @@ test.describe('BasicProfile for pc', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(page).toHaveScreenshot()
+    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.8})
   })
 })
 
@@ -41,6 +41,6 @@ test.describe('BasicProfile for sp', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(page).toHaveScreenshot()
+    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.8})
   })
 })

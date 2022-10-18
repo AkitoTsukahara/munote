@@ -17,7 +17,7 @@ test.describe('Anniversary for pc', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(page).toHaveScreenshot()
+    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.8})
   })
 })
 
@@ -31,6 +31,6 @@ test.describe('Anniversary for sp', () => {
       }
     })
     await page.waitForLoadState('load')
-    await expect(page).toHaveScreenshot()
+    await expect(page).toHaveScreenshot({maxDiffPixelRatio: 0.8})
   })
 })
