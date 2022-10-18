@@ -19,7 +19,7 @@ const config: PlaywrightTestConfig = {
       use: {
         ...devices['Desktop Chrome']
       }
-    },
+    }
   ],
   use: {
     ctViteConfig: {

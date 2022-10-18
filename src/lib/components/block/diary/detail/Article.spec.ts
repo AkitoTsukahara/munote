@@ -8,8 +8,8 @@ const thumbnail =
 
 // eslint-disable-next-line no-empty-pattern
 test.beforeEach(async ({}, testInfo) => {
-  testInfo.snapshotSuffix = '';
-});
+  testInfo.snapshotSuffix = ''
+})
 
 test.describe('Article for pc', () => {
   test.use({ viewport: { width: 768, height: 100 } })
