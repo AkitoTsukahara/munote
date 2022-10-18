@@ -11,7 +11,10 @@ const config: PlaywrightTestConfig = {
   reporter: 'html',
   retries: 1,
   expect: {
-    timeout: 20000
+    timeout: 20000,
+    toMatchSnapshot: {
+      maxDiffPixels: 10,
+    },
   },
   use: {
     ctViteConfig: {
