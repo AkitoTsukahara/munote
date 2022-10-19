@@ -15,7 +15,7 @@ const config: PlaywrightTestConfig = {
     toHaveScreenshot: {
       maxDiffPixels: 10,
       maxDiffPixelRatio: 1,
-      threshold: 0.2,
+      threshold: 0.2
     }
   },
   use: {
