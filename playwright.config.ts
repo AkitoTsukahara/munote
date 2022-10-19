@@ -9,12 +9,11 @@ const __dirname = path.dirname(__filename)
 // @ts-ignore
 const config: PlaywrightTestConfig = {
   reporter: 'html',
-  retries: 1,
   expect: {
     timeout: 20000,
     toHaveScreenshot: {
-      maxDiffPixels: 10,
-      maxDiffPixelRatio: 1,
+      maxDiffPixels: 100,
+      maxDiffPixelRatio: 0.8,
       threshold: 0.2
     }
   },
