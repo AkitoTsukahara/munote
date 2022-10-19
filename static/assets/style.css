@@ -1,0 +1,85 @@
+/*
+  Josh's Custom CSS Reset
+  https://www.joshwcomeau.com/css/custom-css-reset/
+*/
+/* @link https://google-webfonts-helper.herokuapp.com/fonts
+   @link https://google-webfonts-helper.herokuapp.com/fonts/noto-sans-jp?subsets=japanese,latin
+   @link https://google-webfonts-helper.herokuapp.com/fonts/noto-sans?subsets=latin
+*/
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-regular.woff2')
+      format('woff2'),
+    url('fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans JP';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-700.woff2') format('woff2'),
+    url('fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-700.woff') format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/noto-sans-v27-latin/noto-sans-v27-latin-regular.woff2') format('woff2'),
+    url('fonts/noto-sans-v27-latin/noto-sans-v27-latin-regular.woff') format('woff');
+}
+@font-face {
+  font-family: 'Noto Sans';
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+  src: url('fonts/noto-sans-v27-latin/noto-sans-v27-latin-700.woff2') format('woff2'),
+    url('fonts/noto-sans-v27-latin/noto-sans-v27-latin-700.woff') format('woff');
+}
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+* {
+  margin: 0;
+}
+html,
+body {
+  height: 100%;
+  font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+}
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+#root,
+#__next {
+  isolation: isolate;
+}
