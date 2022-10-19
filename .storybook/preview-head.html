@@ -2,7 +2,51 @@
   window.global = window
 </script>
 <style>
+  @font-face {
+    font-family: 'Noto Sans JP';
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url('assets/fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-regular.woff2')
+        format('woff2'),
+      url('assets/fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-regular.woff')
+        format('woff'),
+      url('assets/fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-regular.ttf')
+        format('truetype');
+  }
+  @font-face {
+    font-family: 'Noto Sans JP';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('assets/fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-700.woff2')
+        format('woff2'),
+      url('assets/fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-700.woff')
+        format('woff'),
+      url('assets/fonts/noto-sans-jp-v42-latin/noto-sans-jp-v42-latin_japanese-700.ttf')
+        format('truetype');
+  }
+  @font-face {
+    font-family: 'Noto Sans';
+    font-weight: 500;
+    font-style: normal;
+    font-display: swap;
+    src: url('assets/fonts/noto-sans-v27-latin/noto-sans-v27-latin-regular.woff2') format('woff2'),
+      url('assets/fonts/noto-sans-v27-latin/noto-sans-v27-latin-regular.woff') format('woff'),
+      url('assets/fonts/noto-sans-v27-latin/noto-sans-v27-latin-regular.ttf') format('truetype');
+  }
+  @font-face {
+    font-family: 'Noto Sans';
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    src: url('assets/fonts/noto-sans-v27-latin/noto-sans-v27-latin-700.woff2') format('woff2'),
+      url('assets/fonts/noto-sans-v27-latin/noto-sans-v27-latin-700.woff') format('woff'),
+      url('assets/fonts/noto-sans-v27-latin/noto-sans-v27-latin-700.ttf') format('truetype');
+  }
   * {
+    font-family: 'Noto Sans JP', 'Noto Sans', sans-serif;
+    -webkit-font-smoothing: antialiased;
     margin: 0;
     padding: 0;
   }
