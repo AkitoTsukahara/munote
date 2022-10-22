@@ -16,9 +16,7 @@ export const axiosInstance: AxiosInstance = axios.create(config)
 export const client = () => {
   return api(
     aspida(axiosInstance, {
-      paramsSerializer: function (params) {
-        return queryString.stringify(params, { arrayFormat: 'bracket' })
-      }
+      paramsSerializer: (params) => queryString.stringify(params, { arrayFormat: 'bracket' })
     })
   )
 }
