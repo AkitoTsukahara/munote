@@ -28,10 +28,12 @@
     justify-content: space-between;
     background: $card-background;
     color: $paragraph;
-    padding: 8px;
+    padding: 16px;
+    font-size: 16px;
+
     .back,
     .edit {
-      width: 16px;
+      width: 24px;
       a {
         color: $paragraph;
       }

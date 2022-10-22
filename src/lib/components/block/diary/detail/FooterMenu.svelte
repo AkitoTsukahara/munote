@@ -32,11 +32,12 @@
     justify-content: space-between;
     background: $card-background;
     color: $paragraph;
-    padding: 8px;
+    padding: 16px;
   }
   .garbage,
   .share {
-    width: 16px;
-    height: 16px;
+    width: 24px;
+    height: 24px;
+    cursor: pointer;
   }
 </style>
