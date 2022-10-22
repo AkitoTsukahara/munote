@@ -12,10 +12,10 @@
 </div>
 
 <Story
-    name="Default"
-    args={{
+  name="Default"
+  args={{
     id: 'recZyqtDllgSky0v8',
-    date: '2021-10-25T12:00:00+09:00',
+    date: '2021-10-25T12:00:00+09:00'
   }}
 />
 
