@@ -5,9 +5,10 @@
   import jaLocal from '@fullcalendar/core/locales/ja'
   import type { GetOutput } from './+page.server'
   import { useSchedule } from '$lib/stores/schedule/store'
+  import CommonFooter from '$lib/components/page/common/CommonFooter.svelte'
 
   export let data: GetOutput
-  const { scheduleStore, setFromApi } = useSchedule()
+  const {scheduleStore, setFromApi} = useSchedule()
   $: setFromApi(data.schedule)
   let calendarEvents: EventInput[] | null = $scheduleStore ? $scheduleStore : []
 
@@ -27,9 +28,9 @@
     droppable: true,
     editable: true,
     initialView: 'dayGridMonth',
-    headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
+    headerToolbar: {left: 'prev,next', center: 'title', right: 'today'},
     locale: jaLocal,
-    buttonText: { today: 'BACK' },
+    buttonText: {today: 'BACK'},
     plugins: [dayGridPlugin, interactionPlugin],
     height: 560,
     events: calendarEvents ? calendarEvents : [],
@@ -39,7 +40,31 @@
   $: calendarEvents
   $: options
 </script>
-
-<div class="Calendar">
-  <FullCalendar {options} />
+<div class="page">
+  <div class="container">
+    <div class="Calendar">
+      <FullCalendar {options}/>
+    </div>
+  </div>
+  <CommonFooter/>
 </div>
+
+<style lang="scss">
+  .page {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    min-height: calc(100vh - 40px);
+  }
+
+  .container {
+    flex-grow: 1;
+    padding: 0 16px;
+
+    .Calendar {
+      background: $card-background;
+      padding: 8px;
+      border-radius: 8px;
+    }
+  }
+</style>

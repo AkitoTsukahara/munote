@@ -23,7 +23,7 @@
   .basic-profile {
     background: $card-background;
     padding: 24px;
-    border-radius: 10px;
+    border-radius: 8px;
 
     .profile {
       margin-bottom: 16px;
