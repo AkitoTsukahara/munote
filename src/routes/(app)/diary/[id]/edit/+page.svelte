@@ -17,15 +17,14 @@
 
   const schema = yup.object({
     created_at: yup
-      .date()
+      .string()
       .required('作成日は必須項目です'),
     title: yup
       .string()
       .required('タイトルは必須項目です'),
     contents: yup
       .string()
-      .required('内容は必須項目です'),
-    subscribe: yup.string().required('この項目は必須です')
+      .required('内容は必須項目です')
   })
 
   let submitDisable = false
@@ -62,11 +61,11 @@
 
 <div class="page">
   {#if diary}
-    <form class="container" method="post">
-      <DateTime created_at={diary.createdAt}/>
-      <TextInput title={diary.title} />
-      <TextArea contents={diary.contents}/>
-      <button type="submit" on:register={handleSubmit} disabled="{submitDisable}">Update!</button>
+    <form class="container" use:form>
+      <DateTime value={diary.createdAt} name="created_at"/>
+      <TextInput value={diary.title} name="title"/>
+      <TextArea value={diary.contents} name="contents"/>
+      <button type="submit" on:register={handleSubmit}>Update!</button>
     </form>
   {/if}
   <FooterMenu />
