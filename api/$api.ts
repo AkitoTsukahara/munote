@@ -12,7 +12,7 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   const PATH2 = '/pet'
   const PATH3 = '/schedule'
   const GET = 'GET'
-  const POST = 'POST'
+  const PATCH = 'PATCH'
 
   return {
     diary: {
@@ -21,10 +21,10 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
 
         return {
           edit: {
-            post: (option: { body: Methods2['post']['reqBody'], config?: T | undefined }) =>
-              fetch(prefix, `${prefix1}${PATH1}`, POST, option).send(),
-            $post: (option: { body: Methods2['post']['reqBody'], config?: T | undefined }) =>
-              fetch(prefix, `${prefix1}${PATH1}`, POST, option).send().then(r => r.body),
+            patch: (option: { body: Methods2['patch']['reqBody'], config?: T | undefined }) =>
+              fetch(prefix, `${prefix1}${PATH1}`, PATCH, option).send(),
+            $patch: (option: { body: Methods2['patch']['reqBody'], config?: T | undefined }) =>
+              fetch(prefix, `${prefix1}${PATH1}`, PATCH, option).send().then(r => r.body),
             $path: () => `${prefix}${prefix1}${PATH1}`
           },
           get: (option?: { config?: T | undefined } | undefined) =>

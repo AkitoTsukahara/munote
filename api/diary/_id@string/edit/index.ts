@@ -5,8 +5,28 @@ export type DiaryEditBodyApi = {
   contents: string
 }
 
+type DiaryEditRecordApi = {
+  id: string
+  fields: {
+    id: string
+    title: string
+    contents: string
+    created_at: string
+    thumbnail: [
+      {
+        id: string
+      }
+    ]
+    pet: string[]
+  }
+}
+
 export type Methods = {
-  post: {
-    reqBody: DiaryEditBodyApi
+  patch: {
+    reqBody: {
+      records: [
+        DiaryEditRecordApi
+      ]
+    }
   }
 }
