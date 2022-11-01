@@ -5,7 +5,12 @@ import api from '$api/$api'
 
 const config: AxiosRequestConfig = {
   baseURL: import.meta.env.VITE_API_BASE_URL,
-  headers: { Authorization: `Bearer ${import.meta.env.VITE_API_KEY}` },
+  headers: {
+    Authorization: `Bearer ${import.meta.env.VITE_API_KEY}` ,
+    //'Content-Type': 'application/x-www-form-urlencoded',
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers': 'Origin, Content-Type'
+  },
   withCredentials: true,
   timeout: 10000,
   maxRedirects: 2
