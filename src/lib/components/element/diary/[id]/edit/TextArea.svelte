@@ -1,8 +1,9 @@
 <script lang="ts">
-  export let contents: string
+  export let value: string
+  export let name: string
 </script>
 
-<textarea name="contents" cols="40" rows="10">{contents}</textarea>
+<textarea name={name} cols="40" rows="10">{value}</textarea>
 
 <style lang="scss">
   textarea {

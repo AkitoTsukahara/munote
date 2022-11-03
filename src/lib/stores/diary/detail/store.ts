@@ -18,7 +18,6 @@ export type Diary = {
 const diaryStore = writable<Diary | null>(null)
 
 const setFromApi = (data: ApiDiaryDetail) => {
-  console.log(data)
   const diary: Diary = {
     id: data.id,
     title: data.fields.title,

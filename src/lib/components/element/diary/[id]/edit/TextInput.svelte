@@ -1,8 +1,10 @@
 <script lang="ts">
-  export let title=''
+  export let value=''
+  export let name: string
+  export let placeholder: string
 </script>
 
-<input type="text" bind:value={title} placeholder="タイトルを入力してください">
+<input type="text" bind:value={value} name={name} placeholder={placeholder}>
 
 <style lang="scss">
   input[type="text"] {
