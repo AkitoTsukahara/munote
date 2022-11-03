@@ -1,16 +1,14 @@
 import type { AspidaClient } from 'aspida'
 import type { Methods as Methods0 } from './diary'
 import type { Methods as Methods1 } from './diary/_id@string'
-import type { Methods as Methods2 } from './diary/_id@string/edit'
-import type { Methods as Methods3 } from './pet'
-import type { Methods as Methods4 } from './schedule'
+import type { Methods as Methods2 } from './pet'
+import type { Methods as Methods3 } from './schedule'
 
 const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
   const prefix = (baseURL === undefined ? '' : baseURL).replace(/\/$/, '')
   const PATH0 = '/diary'
-  const PATH1 = '/edit'
-  const PATH2 = '/pet'
-  const PATH3 = '/schedule'
+  const PATH1 = '/pet'
+  const PATH2 = '/schedule'
   const GET = 'GET'
   const PATCH = 'PATCH'
 
@@ -20,17 +18,14 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         const prefix1 = `${PATH0}/${val1}`
 
         return {
-          edit: {
-            patch: (option: { body: Methods2['patch']['reqBody'], config?: T | undefined }) =>
-              fetch(prefix, `${prefix1}${PATH1}`, PATCH, option).send(),
-            $patch: (option: { body: Methods2['patch']['reqBody'], config?: T | undefined }) =>
-              fetch(prefix, `${prefix1}${PATH1}`, PATCH, option).send().then(r => r.body),
-            $path: () => `${prefix}${prefix1}${PATH1}`
-          },
           get: (option?: { config?: T | undefined } | undefined) =>
             fetch<Methods1['get']['resBody']>(prefix, prefix1, GET, option).json(),
           $get: (option?: { config?: T | undefined } | undefined) =>
             fetch<Methods1['get']['resBody']>(prefix, prefix1, GET, option).json().then(r => r.body),
+          patch: (option: { body: Methods1['patch']['reqBody'], headers: Methods1['patch']['reqHeaders'], config?: T | undefined }) =>
+            fetch<Methods1['patch']['resBody']>(prefix, prefix1, PATCH, option).json(),
+          $patch: (option: { body: Methods1['patch']['reqBody'], headers: Methods1['patch']['reqHeaders'], config?: T | undefined }) =>
+            fetch<Methods1['patch']['resBody']>(prefix, prefix1, PATCH, option).json().then(r => r.body),
           $path: () => `${prefix}${prefix1}`
         }
       },
@@ -42,17 +37,17 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
     },
     pet: {
       get: (option?: { config?: T | undefined } | undefined) =>
+        fetch<Methods2['get']['resBody']>(prefix, PATH1, GET, option).json(),
+      $get: (option?: { config?: T | undefined } | undefined) =>
+        fetch<Methods2['get']['resBody']>(prefix, PATH1, GET, option).json().then(r => r.body),
+      $path: () => `${prefix}${PATH1}`
+    },
+    schedule: {
+      get: (option?: { config?: T | undefined } | undefined) =>
         fetch<Methods3['get']['resBody']>(prefix, PATH2, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
         fetch<Methods3['get']['resBody']>(prefix, PATH2, GET, option).json().then(r => r.body),
       $path: () => `${prefix}${PATH2}`
-    },
-    schedule: {
-      get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods4['get']['resBody']>(prefix, PATH3, GET, option).json(),
-      $get: (option?: { config?: T | undefined } | undefined) =>
-        fetch<Methods4['get']['resBody']>(prefix, PATH3, GET, option).json().then(r => r.body),
-      $path: () => `${prefix}${PATH3}`
     },
   }
 }

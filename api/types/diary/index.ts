@@ -31,3 +31,25 @@ export type ApiDiary = {
     }
   ]
 }
+
+export type DiaryEditBodyApi = {
+  id: string
+  created_at: string
+  title: string
+  contents: string
+}
+
+export type DiaryEditRecordApi = {
+  fields: {
+    id: string
+    title: string
+    contents: string
+    created_at: string
+    thumbnail: [
+      {
+        id: string
+      }
+    ]
+    pet: string[]
+  }
+}
