@@ -7,9 +7,7 @@ const config: AxiosRequestConfig = {
   baseURL: import.meta.env.VITE_API_BASE_URL,
   headers: {
     Authorization: `Bearer ${import.meta.env.VITE_API_KEY}` ,
-    //'Content-Type': 'application/x-www-form-urlencoded',
-    'Access-Control-Allow-Origin': '*',
-    'Access-Control-Allow-Headers': 'Origin, Content-Type'
+    'Access-Control-Allow-Origin': 'http://localhost:1025',
   },
   withCredentials: true,
   timeout: 10000,

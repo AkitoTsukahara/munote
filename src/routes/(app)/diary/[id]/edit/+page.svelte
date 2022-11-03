@@ -61,7 +61,7 @@
 
 <div class="page">
   {#if diary}
-    <form class="container" use:form>
+    <form class="container" use:form  rel="noreferrer">
       <DateTime value={diary.createdAt} name="created_at"/>
       <TextInput value={diary.title} name="title"/>
       <TextArea value={diary.contents} name="contents"/>
