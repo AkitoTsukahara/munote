@@ -33,6 +33,10 @@ const api = <T>({ baseURL, fetch }: AspidaClient<T>) => {
         fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option).json(),
       $get: (option?: { config?: T | undefined } | undefined) =>
         fetch<Methods0['get']['resBody']>(prefix, PATH0, GET, option).json().then(r => r.body),
+      patch: (option: { body: Methods0['patch']['reqBody'], headers: Methods0['patch']['reqHeaders'], config?: T | undefined }) =>
+        fetch<Methods0['patch']['resBody']>(prefix, PATH0, PATCH, option).json(),
+      $patch: (option: { body: Methods0['patch']['reqBody'], headers: Methods0['patch']['reqHeaders'], config?: T | undefined }) =>
+        fetch<Methods0['patch']['resBody']>(prefix, PATH0, PATCH, option).json().then(r => r.body),
       $path: () => `${prefix}${PATH0}`
     },
     pet: {
