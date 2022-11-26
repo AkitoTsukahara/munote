@@ -14,10 +14,7 @@
 
 <div class="page">
   {#if diary}
-    <HeaderMenu
-        id={diary.id}
-        date={diary.createdAt}
-    />
+    <HeaderMenu id={diary.id} date={diary.createdAt} />
     <div class="container">
       <Article
         name={diary.name}
@@ -27,9 +24,7 @@
         contents={diary.contents}
       />
     </div>
-    <FooterMenu
-        id={diary.id}
-    />
+    <FooterMenu id={diary.id} />
   {/if}
 </div>
 

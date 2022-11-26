@@ -7,7 +7,8 @@ export type Methods = {
   }
   patch: {
     reqHeaders: {
-      'Authorization': string
+      Authorization: string
+      'Access-Control-Allow-Origin': string
       'Content-Type': string
     }
     // reqBody: DiaryEditRecordApi

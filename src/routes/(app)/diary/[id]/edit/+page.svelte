@@ -16,32 +16,24 @@
   $: diary = $diaryStore
 
   const schema = yup.object({
-    created_at: yup
-      .string()
-      .required('作成日は必須項目です'),
-    title: yup
-      .string()
-      .required('タイトルは必須項目です'),
-    contents: yup
-      .string()
-      .required('内容は必須項目です')
+    created_at: yup.string().required('作成日は必須項目です'),
+    title: yup.string().required('タイトルは必須項目です'),
+    contents: yup.string().required('内容は必須項目です')
   })
 
   let submitDisable = false
   const { form, errors, isSubmitting, isValid, handleSubmit } = createForm<
     yup.InferType<typeof schema>
-    >({
+  >({
     extend: validator({ schema }),
     onSubmit: async (values) => {
       submitDisable = true
-      await useDiaryEditStoreApi().postEditDiary(
-        {
-          id: diary.id,
-          created_at: values.created_at,
-          title: values.title,
-          contents: values.contents
-        }
-      )
+      await useDiaryEditStoreApi().postEditDiary({
+        id: diary.id,
+        created_at: values.created_at,
+        title: values.title,
+        contents: values.contents
+      })
       location.href = '/diary'
       submitDisable = false
     },
@@ -49,6 +41,16 @@
       console.log(err)
     }
   })
+
+  const submit = async () => {
+    await useDiaryEditStoreApi().postEditDiary({
+      id: diary.id,
+      created_at: '',
+      title: 'test',
+      contents: 'testAAAA'
+    })
+    location.href = '/diary'
+  }
 
   const checkValidate = (submited: boolean) => {
     if (submited && $isValid === false) {
@@ -61,13 +63,14 @@
 
 <div class="page">
   {#if diary}
-    <form class="container" use:form  rel="noreferrer">
-      <DateTime value={diary.createdAt} name="created_at"/>
-      <TextInput value={diary.title} name="title"/>
-      <TextArea value={diary.contents} name="contents"/>
-      <button type="submit" on:register={handleSubmit}>Update!</button>
+    <form class="container" use:form rel="noreferrer">
+      <DateTime value={diary.createdAt} name="created_at" />
+      <TextInput value={diary.title} name="title" />
+      <TextArea value={diary.contents} name="contents" />
+      <button type="submit" on:click={handleSubmit}>Update!</button>
     </form>
   {/if}
+  <button on:click={submit}>Update!</button>
   <FooterMenu />
 </div>
 
