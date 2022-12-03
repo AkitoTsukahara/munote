@@ -1,13 +1,13 @@
 <script lang="ts">
-  export let value=''
+  export let value = ''
   export let name: string
   export let placeholder: string
 </script>
 
-<input type="text" bind:value={value} name={name} placeholder={placeholder}>
+<input type="text" bind:value {name} {placeholder} />
 
 <style lang="scss">
-  input[type="text"] {
+  input[type='text'] {
     font: 15px/24px sans-serif;
     box-sizing: border-box;
     width: 100%;
@@ -21,7 +21,7 @@
     &:focus {
       border: 1px solid $button-text;
       outline: none;
-      box-shadow: 0 0 5px 1px rgba($paragraph, .5);
+      box-shadow: 0 0 5px 1px rgba($paragraph, 0.5);
     }
   }
 </style>

@@ -12,8 +12,8 @@
 </div>
 
 <Story
-    name="Default"
-    args={{
+  name="Default"
+  args={{
     created_at: '2021-10-25T12:00:00+09:00'
   }}
 />

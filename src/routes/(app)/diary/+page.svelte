@@ -14,23 +14,23 @@
 
 <div class="page">
   <div class="container">
-  {#if diaries.length > 0}
-    {#each diaries as diary}
-      <div class="list">
-        <a href={getDiaryUrl(diary.id)}>
-          <List
-            name={diary.name}
-            title={diary.title}
-            icon={diary.profileImage.url}
-            date={diary.createdAt}
-            thumbnail={diary.thumbnail.url}
-          />
-        </a>
-      </div>
-    {/each}
-  {/if}
+    {#if diaries.length > 0}
+      {#each diaries as diary}
+        <div class="list">
+          <a href={getDiaryUrl(diary.id)}>
+            <List
+              name={diary.name}
+              title={diary.title}
+              icon={diary.profileImage.url}
+              date={diary.createdAt}
+              thumbnail={diary.thumbnail.url}
+            />
+          </a>
+        </div>
+      {/each}
+    {/if}
   </div>
-  <CommonFooter/>
+  <CommonFooter />
 </div>
 
 <style lang="scss">

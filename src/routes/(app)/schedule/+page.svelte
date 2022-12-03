@@ -8,7 +8,7 @@
   import CommonFooter from '$lib/components/page/common/CommonFooter.svelte'
 
   export let data: GetOutput
-  const {scheduleStore, setFromApi} = useSchedule()
+  const { scheduleStore, setFromApi } = useSchedule()
   $: setFromApi(data.schedule)
   let calendarEvents: EventInput[] | null = $scheduleStore ? $scheduleStore : []
 
@@ -28,9 +28,9 @@
     droppable: true,
     editable: true,
     initialView: 'dayGridMonth',
-    headerToolbar: {left: 'prev,next', center: 'title', right: 'today'},
+    headerToolbar: { left: 'prev,next', center: 'title', right: 'today' },
     locale: jaLocal,
-    buttonText: {today: 'BACK'},
+    buttonText: { today: 'BACK' },
     plugins: [dayGridPlugin, interactionPlugin],
     height: 560,
     events: calendarEvents ? calendarEvents : [],
@@ -40,13 +40,14 @@
   $: calendarEvents
   $: options
 </script>
+
 <div class="page">
   <div class="container">
     <div class="Calendar">
-      <FullCalendar {options}/>
+      <FullCalendar {options} />
     </div>
   </div>
-  <CommonFooter/>
+  <CommonFooter />
 </div>
 
 <style lang="scss">

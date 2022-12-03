@@ -3,7 +3,7 @@
   export let name: string
 </script>
 
-<textarea name={name} cols="40" rows="10">{value}</textarea>
+<textarea {name} cols="40" rows="10">{value}</textarea>
 
 <style lang="scss">
   textarea {

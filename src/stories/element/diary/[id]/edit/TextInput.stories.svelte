@@ -12,8 +12,8 @@
 </div>
 
 <Story
-    name="Default"
-    args={{
+  name="Default"
+  args={{
     title: 'タイトルが入ります。'
   }}
 />
