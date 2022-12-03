@@ -9,7 +9,8 @@ export default defineConfig((env: ConfigEnv) => {
       fs: {
         allow: ['.']
       },
-      cors: false
+      // cors: true,
+      // proxy: 'https://api.airtable.com',
     },
     plugins: [
       sveltekit(),
