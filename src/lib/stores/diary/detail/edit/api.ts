@@ -1,18 +1,18 @@
-import type { DiaryEditBodyApi } from '$api/types/diary'
 import { base } from '$lib/package/airtable'
+import type { FieldSet } from 'airtable/lib/field_set'
 
 export const useDiaryEditStoreApi = () => {
-  const postEditDiary = async (id: string, data: DiaryEditBodyApi) => {
-    await base('diary')
-      .update(
-        id,
-        data
-        , function (err: any, record: any) {
-          if (err) {
-            console.log(err)
-          }
-        }
-      )
+  const postEditDiary = async (id: string, data: Partial<FieldSet>): Promise<boolean> => {
+    try {
+      await base('diary')
+        .update(
+          id,
+          data
+        )
+      return true
+    } catch (err) {
+      return false
+    }
   }
   return {
     postEditDiary

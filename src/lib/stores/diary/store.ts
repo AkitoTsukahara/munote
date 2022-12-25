@@ -1,49 +1,20 @@
 import { writable } from '$lib/package/isolation/store'
-import type { ApiDiary } from '$api/types/diary'
-import type { Records } from 'airtable/lib/records';
-
-export type Diary = {
-  id: string
-  title: string
-  createdAt: string
-  thumbnail: {
-    url: string
-  }
-  name: string
-  profileImage: {
-    url: string
-  }
-}
+import type { Diary } from './detail/store'
 
 const diaryStore = writable<Diary[] | null>(null)
 
-const setFromApi = (data: ApiDiary) => {
-  const diary: Diary[] = data.records.map((record) => ({
+const setFromApi = (data: Diary[]) => {
+  const diary: Diary[] = data.map((record: Diary) => ({
     id: record.id,
-    title: record.fields.title,
-    createdAt: record.fields.created_at,
+    title: record.title,
+    contents: record.contents,
+    created_at: record.created_at,
     thumbnail: {
-      url: record.fields.thumbnail[0].thumbnails.large.url
+      url: record.thumbnail.url
     },
-    name: record.fields.name,
+    name: record.name,
     profileImage: {
-      url: record.fields.profile_image[0].thumbnails.small.url
-    }
-  }))
-  diaryStore.set(diary)
-}
-
-const setFromApiTest = (data: ApiDiary) => {
-  const diary: Diary[] = data.records.map((record) => ({
-    id: record.id,
-    title: record.fields.title,
-    createdAt: record.fields.created_at,
-    thumbnail: {
-      url: record.fields.thumbnail[0].thumbnails.large.url
-    },
-    name: record.fields.name,
-    profileImage: {
-      url: record.fields.profile_image[0].thumbnails.small.url
+      url: record.profileImage.url
     }
   }))
   diaryStore.set(diary)
@@ -52,7 +23,6 @@ const setFromApiTest = (data: ApiDiary) => {
 export const useDiary = () => {
   return {
     diaryStore,
-    setFromApi,
-    setFromApiTest
+    setFromApi
   }
 }

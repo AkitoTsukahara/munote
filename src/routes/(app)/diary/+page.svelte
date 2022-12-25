@@ -22,7 +22,7 @@
               name={diary.name}
               title={diary.title}
               icon={diary.profileImage.url}
-              date={diary.createdAt}
+              date={diary.created_at}
               thumbnail={diary.thumbnail.url}
             />
           </a>

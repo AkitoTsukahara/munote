@@ -1,50 +1,29 @@
 import { base } from '$lib/package/airtable'
+import type { Diary } from './detail/store'
 
 export const useDiaryStoreApi = () => {
   const get = async () => {
-    let res = await base('diary')
+    return await base('diary')
       .select({
-        //fields: ['id'],
         maxRecords: 3,
         cellFormat: 'json'
       }).all().then((records) => {
-        return records.map((record) => {
-          console.log(record.fields.thumbnail)
-          // @ts-ignore
+        return records.map((record:Record<any, any>): Diary => {
           return {
             id: record.id,
-            createdTime: record._rawJson.createdTime,
-            fields: {
-              id: record.fields.id,
-              title: record.fields.title,
-              contents: record.fields.contents,
-              created_at: record.fields.created_at,
-              thumbnail: [
-                {
-                  thumbnails: {
-                    large: {
-                      url: record.fields.thumbnail[0].thumbnails.large.url
-                    }
-                  }
-                }
-              ],
-              name: record.fields.name,
-              profile_image: [
-                {
-                  thumbnails: {
-                    small: {
-                      url: record.fields.profile_image[0].thumbnails.small.url
-                    }
-                  }
-                }
-              ]
+            created_at: record._rawJson.createdTime,
+            title: record.fields.title,
+            contents: record.fields.contents,
+            thumbnail: {
+              url: record.fields.thumbnail[0].thumbnails.large.url
+            },
+            name: record.fields.name,
+            profileImage: {
+              url: record.fields.profile_image[0].thumbnails.small.url
             }
           }
         })
       });
-    return {
-      records: res
-    }
   }
   return {
     get

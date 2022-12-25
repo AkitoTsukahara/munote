@@ -14,7 +14,7 @@
 
 <div class="page">
   {#if diary}
-    <HeaderMenu id={diary.id} date={diary.createdAt} />
+    <HeaderMenu id={diary.id} date={diary.created_at} />
     <div class="container">
       <Article
         name={diary.name}

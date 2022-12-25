@@ -1,11 +1,10 @@
 import { writable } from '$lib/package/isolation/store'
-import type { ApiDiaryDetail } from '$api/types/diary/detail'
 
 export type Diary = {
   id: string
   title: string
   contents: string
-  createdAt: string
+  created_at: string
   thumbnail: {
     url: string
   }
@@ -17,18 +16,18 @@ export type Diary = {
 
 const diaryStore = writable<Diary | null>(null)
 
-const setFromApi = (data: ApiDiaryDetail) => {
+const setFromApi = (data: Diary) => {
   const diary: Diary = {
     id: data.id,
-    title: data.fields.title,
-    contents: data.fields.contents,
-    createdAt: data.fields.created_at,
+    title: data.title,
+    contents: data.contents,
+    created_at: data.created_at,
     thumbnail: {
-      url: data.fields.thumbnail[0].thumbnails.large.url
+      url: data.thumbnail.url
     },
-    name: data.fields.name,
+    name: data.name,
     profileImage: {
-      url: data.fields.profile_image[0].thumbnails.small.url
+      url: data.profileImage.url
     }
   }
   diaryStore.set(diary)
