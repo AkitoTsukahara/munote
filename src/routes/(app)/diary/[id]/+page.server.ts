@@ -1,9 +1,9 @@
 import { error, type ServerLoad } from '@sveltejs/kit'
-import type { ApiDiaryDetail } from '$api/types/diary/detail'
 import { useDiaryDetailStoreApi } from '$lib/stores/diary/detail/api'
+import type { Diary } from '$lib/stores/diary/detail/store'
 
 export type GetOutput = {
-  diary: ApiDiaryDetail
+  diary: Diary
 }
 
 export const load: ServerLoad = async ({ params }): Promise<GetOutput> => {

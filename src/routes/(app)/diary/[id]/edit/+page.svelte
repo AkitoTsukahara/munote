@@ -28,15 +28,19 @@
     extend: validator({ schema }),
     onSubmit: async (values) => {
       submitDisable = true
-      await useDiaryEditStoreApi().postEditDiary(
+      let res = await useDiaryEditStoreApi().postEditDiary(
         diary.id,
         {
           created_at: values.created_at,
           title: values.title,
           contents: values.contents
         })
-      location.href = '/diary'
-      submitDisable = false
+      if (res) {
+        location.href = '/diary'
+      } else {
+        alert('登録に失敗しました')
+        submitDisable = false
+      }
     },
     onError: (err) => {
       console.log(err)
@@ -55,7 +59,7 @@
 <div class="page">
   {#if diary}
     <form class="container" use:form rel="noreferrer">
-      <DateTime value={diary.createdAt} name="created_at" />
+      <DateTime value={diary.created_at} name="created_at" />
       <TextInput value={diary.title} name="title" />
       <TextArea value={diary.contents} name="contents" />
       <button type="submit" on:click={handleSubmit}>Update!</button>
