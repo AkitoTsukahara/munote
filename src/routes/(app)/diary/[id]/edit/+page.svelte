@@ -24,16 +24,17 @@
   let submitDisable = false
   const { form, errors, isSubmitting, isValid, handleSubmit } = createForm<
     yup.InferType<typeof schema>
-  >({
+    >({
     extend: validator({ schema }),
     onSubmit: async (values) => {
       submitDisable = true
-      await useDiaryEditStoreApi().postEditDiary({
-        id: diary.id,
-        created_at: values.created_at,
-        title: values.title,
-        contents: values.contents
-      })
+      await useDiaryEditStoreApi().postEditDiary(
+        diary.id,
+        {
+          created_at: values.created_at,
+          title: values.title,
+          contents: values.contents
+        })
       location.href = '/diary'
       submitDisable = false
     },
@@ -41,16 +42,6 @@
       console.log(err)
     }
   })
-
-  const submit = async () => {
-    await useDiaryEditStoreApi().postEditDiary({
-      id: diary.id,
-      created_at: '',
-      title: 'test',
-      contents: 'testAAAA'
-    })
-    location.href = '/diary'
-  }
 
   const checkValidate = (submited: boolean) => {
     if (submited && $isValid === false) {
@@ -70,7 +61,7 @@
       <button type="submit" on:click={handleSubmit}>Update!</button>
     </form>
   {/if}
-  <button on:click={submit}>Update!</button>
+  <button on:click={handleSubmit}>Update!</button>
   <FooterMenu />
 </div>
 

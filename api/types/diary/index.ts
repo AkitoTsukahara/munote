@@ -33,7 +33,6 @@ export type ApiDiary = {
 }
 
 export type DiaryEditBodyApi = {
-  id: string
   created_at: string
   title: string
   contents: string
