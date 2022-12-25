@@ -1,41 +1,18 @@
-import { client } from '$lib/package/api/client'
 import type { DiaryEditBodyApi } from '$api/types/diary'
+import { base } from '$lib/package/airtable'
 
 export const useDiaryEditStoreApi = () => {
-  const postEditDiary = async (data: DiaryEditBodyApi) => {
-    return await client()
-      .diary.$patch({
-        headers: {
-          Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
-          'Access-Control-Allow-Origin': `${import.meta.env.VITE_BASE_URL}`,
-          'Content-Type': 'application/json'
-        },
-        body: {
-          records: [
-            {
-              id: data.id,
-              fields: {
-                id: data.id,
-                title: data.title,
-                contents: data.contents,
-                created_at: data.created_at,
-                thumbnail: [
-                  {
-                    id: 'attwyLtVo5KqZclpF'
-                  }
-                ],
-                pet: ['reccnizYtG0jzy3xm']
-              }
-            }
-          ]
+  const postEditDiary = async (id: string, data: DiaryEditBodyApi) => {
+    await base('diary')
+      .update(
+        id,
+        data
+        , function (err: any, record: any) {
+          if (err) {
+            console.log(err)
+          }
         }
-      })
-      .catch((err) => {
-        if (err.response?.status !== 404) {
-          console.log(err)
-        }
-        throw err
-      })
+      )
   }
   return {
     postEditDiary
