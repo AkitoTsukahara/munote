@@ -1,27 +1,24 @@
-import adapter from '@sveltejs/adapter-auto'
-import preprocess from 'svelte-preprocess'
+import adapter from '@sveltejs/adapter-node'
+import { vitePreprocess } from '@sveltejs/kit/vite'
+import dotenv from 'dotenv'
+dotenv.config()
 
 /** @type {import('@sveltejs/kit').Config} */
 const config = {
   // Consult https://github.com/sveltejs/svelte-preprocess
   // for more information about preprocessors
-  preprocess: [
-    preprocess({
-      typescript: true,
-      postcss: true,
-      sourceMap: true,
-      scss: {
-        prependData: '@use "src/variables.scss" as *;'
-      }
-    })
-  ],
+  preprocess: vitePreprocess(),
 
   kit: {
     adapter: adapter(),
     files: {
       hooks: {
-        server: 'src/server.hooks.ts'
+        client: 'src/hooks.client.ts',
+        server: 'src/hooks.server.ts'
       }
+    },
+    csrf: {
+      checkOrigin: process.env.NODE_ENV === 'production'
     }
   }
 }

@@ -9,30 +9,9 @@ export default defineConfig((env: ConfigEnv) => {
       fs: {
         allow: ['.']
       },
-      // cors: true,
-      // proxy: 'https://api.airtable.com',
     },
     plugins: [
       sveltekit(),
-      // FIXME: workaround for https://github.com/sveltejs/kit/issues/5843
-      // 直ったら次のobjectは消せる
-      {
-        name: 'sveltekit-bug-workaround',
-        config(config) {
-          if (
-            config.build?.rollupOptions?.output &&
-            !(config.build.rollupOptions.output instanceof Array) &&
-            typeof config.build.rollupOptions.output.assetFileNames === 'string'
-          ) {
-            const original = config.build.rollupOptions.output.assetFileNames
-            config.build.rollupOptions.output.assetFileNames = (assetInfo) => {
-              const match = assetInfo?.name?.match(/\/\+(.*)\.css$/)
-              return match ? original.replace('[name]', match[1]) : original
-            }
-          }
-          return config
-        }
-      },
       {
         name: 'setup-vitest-plugin',
         config: () =>
@@ -41,19 +20,7 @@ export default defineConfig((env: ConfigEnv) => {
               setupFiles: ['./vitestSetup.ts']
             }
           } as UserConfig)
-      },
-      // {
-      //   name: 'log-request-middleware',
-      //   configureServer(server) {
-      //     server.middlewares.use((req, res, next) => {
-      //       res.setHeader('Access-Control-Allow-Origin', '*')
-      //       res.setHeader('Access-Control-Allow-Methods', 'GET,POST,PATCH,DELETE')
-      //       res.setHeader('Cross-Origin-Opener-Policy', 'same-origin')
-      //       res.setHeader('Cross-Origin-Embedder-Policy', 'require-corp')
-      //       next()
-      //     })
-      //   }
-      // }
+      }
     ],
     resolve: {
       alias: [
@@ -74,12 +41,12 @@ export default defineConfig((env: ConfigEnv) => {
     css: {
       preprocessorOptions: {
         scss: {
-          // additionalData: '@use "src/variables.scss" as *;'
+          additionalData: '@use "src/variables.scss" as *;'
         }
       }
     },
     ssr: {
-      noExternal: [...(env.mode === 'development' ? [] : ['@aspida/axios', 'date-fns'])]
+      noExternal: [...(env.mode === 'development' ? [] : ['@aspida/axios'])]
     },
     test: {
       globals: true,
