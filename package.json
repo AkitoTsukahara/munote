@@ -60,6 +60,7 @@
   "dependencies": {
     "@aspida/axios": "^1.12.0",
     "@popperjs/core": "^2.11.8",
+    "@sveltejs/adapter-vercel": "^3.0.3",
     "@types/ua-parser-js": "^0.7.36",
     "@zerodevx/svelte-toast": "^0.9.5",
     "axios": "^1.4.0",
